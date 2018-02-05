@@ -1,0 +1,34 @@
+<script>
+    function myfunction() { 
+	var txt,txt2, arr_txt, sen, count=0;
+        txt = document.getElementById("txt").value;
+        txt2 = document.getElementById("txt2").value;
+		sen = document.querySelector("input[name='radio']:checked").value;
+		arr_txt = txt.split(" ");	
+        arr_txt.forEach(key =>{
+			if(sen == "No"){
+				txt2 = txt2.toLowerCase();
+				key = key.toLowerCase();
+			}if(key.search(txt2) > -1){
+				count++;
+			}
+		});
+		document.getElementById("demo").innerHTML = count;
+    }
+</script>
+<body>
+	<h2>Ex.2 - Search String Non Sensitive Case</h2>
+		<a>Text Input :</a>
+		<textarea id="txt"></textarea>
+		<br><br>
+		<a>Sensitive Case : </a>
+		<input type="radio" name="radio" value="Yes" checked><a>Yes</a>
+		<input type="radio" name="radio" value="No"><a>No</a>
+		<br><br>
+		<a>Search :</a>
+		<input type="text" id="txt2"/>
+		<br><br>
+		<button onclick='myfunction()'>search</button>
+        <br><br>
+        <p>Result for search : <a id="demo"></a></p>
+</body>
